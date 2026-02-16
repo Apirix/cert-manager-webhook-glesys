@@ -121,7 +121,7 @@ jobs:
         if: steps.release_check.outputs.is_release == 'true'
         env:
           CHART_PACKAGE: ${{ steps.helm_package.outputs.package_name }}
-          OCI_REGISTRY: ghcr.io/${{ github.repository_owner }}/charts
+          OCI_REGISTRY: ghcr.io/${{ github.repository_owner,, }}/charts
           CHART_NAME: ${{ steps.chart_info.outputs.chart_name }}
         run: |
           echo "Pushing $CHART_PACKAGE to $OCI_REGISTRY/$CHART_NAME"
